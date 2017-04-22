@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="pocket_save_db@localhost" uuid="dc7d2702-61ba-4d55-b5d8-7c85694f6b49">
+      <database-info product="PostgreSQL" version="9.5.5" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <resolve-scope>pocket_save_db:public,root</resolve-scope>
+    </data-source>
+  </component>
+</project>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="pocket_save_db@localhost">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.0">
+    <root id="1"/>
+    <database id="2" parent="1" name="pocket_save_db">
+      <ObjectId>44646</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <schema id="3" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <IntrospectionTimestamp>2017-04-20.10:13:22.720</IntrospectionTimestamp>
+      <IntrospectionStateNumber>20727</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="4" parent="2" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+    </schema>
+    <schema id="5" parent="2" name="pg_toast">
+      <ObjectId>99</ObjectId>
+    </schema>
+    <schema id="6" parent="2" name="pg_temp_1">
+      <ObjectId>11816</ObjectId>
+    </schema>
+    <schema id="7" parent="2" name="pg_toast_temp_1">
+      <ObjectId>11817</ObjectId>
+    </schema>
+    <schema id="8" parent="2" name="information_schema">
+      <ObjectId>12081</ObjectId>
+    </schema>
+    <sequence id="9" parent="3" name="category_seq">
+      <ObjectId>47831</ObjectId>
+      <StateNumber>20428</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <sequence id="10" parent="3" name="history_seq">
+      <ObjectId>48081</ObjectId>
+      <StateNumber>20638</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <sequence id="11" parent="3" name="user_seq">
+      <ObjectId>47833</ObjectId>
+      <StateNumber>20429</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <table id="12" parent="3" name="balance_history">
+      <ObjectId>48113</ObjectId>
+      <StateNumber>20727</StateNumber>
+    </table>
+    <table id="13" parent="3" name="category">
+      <ObjectId>47787</ObjectId>
+      <StateNumber>20727</StateNumber>
+    </table>
+    <table id="14" parent="3" name="user_table">
+      <ObjectId>47805</ObjectId>
+      <StateNumber>20427</StateNumber>
+    </table>
+    <column id="15" parent="12" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>20727</StateNumber>
+    </column>
+    <column id="16" parent="12" name="amount">
+      <Position>2</Position>
+      <DataType>double precision|0</DataType>
+      <StateNumber>20727</StateNumber>
+    </column>
+    <column id="17" parent="12" name="description">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>20727</StateNumber>
+    </column>
+    <column id="18" parent="12" name="created_date">
+      <Position>4</Position>
+      <DataType>timestamp|0</DataType>
+      <StateNumber>20727</StateNumber>
+    </column>
+    <column id="19" parent="12" name="category">
+      <Position>5</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>20727</StateNumber>
+    </column>
+    <index id="20" parent="12" name="history_pkey">
+      <ObjectId>48116</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="21" parent="12" name="history_pkey">
+      <ObjectId>48117</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>history_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="22" parent="12" name="balance_history_category_fkey">
+      <ObjectId>48118</ObjectId>
+      <ColNames>category</ColNames>
+      <RefTableName>category</RefTableName>
+      <RefKeyName>category_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="23" parent="13" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>20412</StateNumber>
+    </column>
+    <column id="24" parent="13" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>20412</StateNumber>
+    </column>
+    <column id="25" parent="13" name="type">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>20412</StateNumber>
+    </column>
+    <column id="26" parent="13" name="categories">
+      <Position>4</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>20425</StateNumber>
+    </column>
+    <index id="27" parent="13" name="category_pkey">
+      <ObjectId>47793</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="28" parent="13" name="category_pkey">
+      <ObjectId>47794</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>category_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="29" parent="13" name="fk_8wc226t1j0kxsdxk2djj1n79i">
+      <ObjectId>47826</ObjectId>
+      <ColNames>categories</ColNames>
+      <RefTableName>user_table</RefTableName>
+      <RefKeyName>user_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="30" parent="14" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>20415</StateNumber>
+    </column>
+    <column id="31" parent="14" name="first_name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>20415</StateNumber>
+    </column>
+    <column id="32" parent="14" name="last_name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>20415</StateNumber>
+    </column>
+    <column id="33" parent="14" name="email">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>20415</StateNumber>
+    </column>
+    <column id="34" parent="14" name="password">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>20415</StateNumber>
+    </column>
+    <column id="35" parent="14" name="categories">
+      <Position>6</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>20415</StateNumber>
+    </column>
+    <column id="36" parent="14" name="balance">
+      <Position>7</Position>
+      <DataType>double precision|0</DataType>
+      <StateNumber>20415</StateNumber>
+    </column>
+    <index id="37" parent="14" name="user_pkey">
+      <ObjectId>47811</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="38" parent="14" name="user_pkey">
+      <ObjectId>47812</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>user_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="39" parent="14" name="user_table_categories_fkey">
+      <ObjectId>47813</ObjectId>
+      <ColNames>categories</ColNames>
+      <RefTableName>category</RefTableName>
+      <RefKeyName>category_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
