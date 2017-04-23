@@ -13,10 +13,11 @@ public class CategoryDaoImpl implements CategoryDao {
     private EntityManager em;
 
     @Override
-    public Category findCategoryByName(String name) {
-        String query = "SELECT c FROM Category c WHERE c.categoryName = :name";
+    public Category findCategory(String name, String type) {
+        String query = "SELECT c FROM Category c WHERE c.categoryName = :name AND c.categoryType = :type";
         List<Category> foundCategories = em.createQuery(query, Category.class)
                 .setParameter("name", name)
+                .setParameter("type", type)
                 .getResultList();
         return (foundCategories.size() > 0) ? foundCategories.get(0) : null;
     }

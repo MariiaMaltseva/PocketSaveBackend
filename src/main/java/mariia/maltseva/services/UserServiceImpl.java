@@ -58,7 +58,7 @@ public class UserServiceImpl implements UserService {
             balanceHistoryToSave.setDescription(user.getHistory().getDescription());
             balanceHistoryToSave.setCreatedData(user.getHistory().getDate());
 
-            Category category = categoryDao.findCategoryByName(user.getCategory());
+            Category category = categoryDao.findCategory(user.getCategory().getCategoryName(), user.getCategory().getCategoryType());
             balanceHistoryToSave.setCategories(category);
 
             List<BalanceHistory> balanceHistories = userToUpdate.getBalanceHistories();
@@ -74,10 +74,36 @@ public class UserServiceImpl implements UserService {
         return userToUpdate;
     }
 
+    @Override
+    public User addNewCategory(DTOUser user) {
+        User userToUpdate = userDao.getUserByEmail(user.getEmail());
+        if (userToUpdate != null) {
+            Category categoryToAdd = new Category(user.getCategory().getCategoryName(), user.getCategory().getCategoryType());
+            List<Category> existedCategory = userToUpdate.getCategories();
+            existedCategory.add(categoryToAdd);
+            userToUpdate.setCategories(existedCategory);
+        }
+        return userToUpdate;
+    }
+
+    @Override
+    public User deleteCategory(DTOUser user) {
+        User userToUpdate = userDao.getUserByEmail(user.getEmail());
+        if (userToUpdate != null) {
+            Category categoryToDelete = categoryDao.findCategory(user.getCategory().getCategoryName(), user.getCategory().getCategoryType());
+            List<Category> existedCategory = userToUpdate.getCategories();
+            if(existedCategory.contains(categoryToDelete)){
+                existedCategory.remove(categoryToDelete);
+                userToUpdate.setCategories(existedCategory);
+            }
+        }
+        return userToUpdate;
+    }
+
     public User updateBalance(DTOUser user) {
         User userToUpdate = userDao.getUserByEmail(user.getEmail());
         if (userToUpdate != null) {
-            Category category = new Category("", "income");
+            Category category = new Category("other", "income");
             List<Category> userCategory = userToUpdate.getCategories();
             userCategory.add(category);
             userToUpdate.setCategories(userCategory);

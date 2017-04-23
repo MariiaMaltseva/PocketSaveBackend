@@ -12,4 +12,9 @@ public interface UserService {
     User login(Credentials credentials);
 
     User saveBalanceHistory(DTOUser user);
+
+    User addNewCategory(DTOUser user);
+
+    User deleteCategory(DTOUser user);
 }
+

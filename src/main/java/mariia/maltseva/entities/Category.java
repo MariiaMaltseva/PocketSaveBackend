@@ -48,4 +48,34 @@ public class Category {
     public void setCategoryType(String categoryType) {
         this.categoryType = categoryType;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Category category = (Category) o;
+
+        if (id != category.id) return false;
+        if (categoryName != null ? !categoryName.equals(category.categoryName) : category.categoryName != null)
+            return false;
+        return categoryType != null ? categoryType.equals(category.categoryType) : category.categoryType == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + (categoryName != null ? categoryName.hashCode() : 0);
+        result = 31 * result + (categoryType != null ? categoryType.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id=" + id +
+                ", categoryName='" + categoryName + '\'' +
+                ", categoryType='" + categoryType + '\'' +
+                '}';
+    }
 }

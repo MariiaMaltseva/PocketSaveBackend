@@ -9,8 +9,8 @@
     </database>
     <schema id="3" parent="2" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2017-04-20.10:13:22.720</IntrospectionTimestamp>
-      <IntrospectionStateNumber>20727</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2017-04-23.17:52:17.065</IntrospectionTimestamp>
+      <IntrospectionStateNumber>20732</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -46,7 +46,7 @@
     </sequence>
     <table id="12" parent="3" name="balance_history">
       <ObjectId>48113</ObjectId>
-      <StateNumber>20727</StateNumber>
+      <StateNumber>20732</StateNumber>
     </table>
     <table id="13" parent="3" name="category">
       <ObjectId>47787</ObjectId>
@@ -54,7 +54,7 @@
     </table>
     <table id="14" parent="3" name="user_table">
       <ObjectId>47805</ObjectId>
-      <StateNumber>20427</StateNumber>
+      <StateNumber>20732</StateNumber>
     </table>
     <column id="15" parent="12" name="id">
       <Position>1</Position>
@@ -82,111 +82,128 @@
       <DataType>integer|0</DataType>
       <StateNumber>20727</StateNumber>
     </column>
-    <index id="20" parent="12" name="history_pkey">
+    <column id="20" parent="12" name="date_format">
+      <Position>6</Position>
+      <DataType>bytea|0</DataType>
+      <StateNumber>20730</StateNumber>
+    </column>
+    <column id="21" parent="12" name="balances">
+      <Position>7</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>20731</StateNumber>
+    </column>
+    <index id="22" parent="12" name="history_pkey">
       <ObjectId>48116</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="21" parent="12" name="history_pkey">
+    <key id="23" parent="12" name="history_pkey">
       <ObjectId>48117</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>history_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="22" parent="12" name="balance_history_category_fkey">
+    <foreign-key id="24" parent="12" name="balance_history_category_fkey">
       <ObjectId>48118</ObjectId>
       <ColNames>category</ColNames>
       <RefTableName>category</RefTableName>
       <RefKeyName>category_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="23" parent="13" name="id">
+    <foreign-key id="25" parent="12" name="fk_gf5xhwu4vxnwdxybkaueklf6x">
+      <ObjectId>48126</ObjectId>
+      <ColNames>balances</ColNames>
+      <RefTableName>user_table</RefTableName>
+      <RefKeyName>user_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="26" parent="13" name="id">
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>20412</StateNumber>
     </column>
-    <column id="24" parent="13" name="name">
+    <column id="27" parent="13" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <StateNumber>20412</StateNumber>
     </column>
-    <column id="25" parent="13" name="type">
+    <column id="28" parent="13" name="type">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <StateNumber>20412</StateNumber>
     </column>
-    <column id="26" parent="13" name="categories">
+    <column id="29" parent="13" name="categories">
       <Position>4</Position>
       <DataType>integer|0</DataType>
       <StateNumber>20425</StateNumber>
     </column>
-    <index id="27" parent="13" name="category_pkey">
+    <index id="30" parent="13" name="category_pkey">
       <ObjectId>47793</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="28" parent="13" name="category_pkey">
+    <key id="31" parent="13" name="category_pkey">
       <ObjectId>47794</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>category_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="29" parent="13" name="fk_8wc226t1j0kxsdxk2djj1n79i">
+    <foreign-key id="32" parent="13" name="fk_8wc226t1j0kxsdxk2djj1n79i">
       <ObjectId>47826</ObjectId>
       <ColNames>categories</ColNames>
       <RefTableName>user_table</RefTableName>
       <RefKeyName>user_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="30" parent="14" name="id">
+    <column id="33" parent="14" name="id">
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>20415</StateNumber>
     </column>
-    <column id="31" parent="14" name="first_name">
+    <column id="34" parent="14" name="first_name">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <StateNumber>20415</StateNumber>
     </column>
-    <column id="32" parent="14" name="last_name">
+    <column id="35" parent="14" name="last_name">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <StateNumber>20415</StateNumber>
     </column>
-    <column id="33" parent="14" name="email">
+    <column id="36" parent="14" name="email">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
       <StateNumber>20415</StateNumber>
     </column>
-    <column id="34" parent="14" name="password">
+    <column id="37" parent="14" name="password">
       <Position>5</Position>
       <DataType>varchar(255)|0</DataType>
       <StateNumber>20415</StateNumber>
     </column>
-    <column id="35" parent="14" name="categories">
+    <column id="38" parent="14" name="categories">
       <Position>6</Position>
       <DataType>integer|0</DataType>
       <StateNumber>20415</StateNumber>
     </column>
-    <column id="36" parent="14" name="balance">
+    <column id="39" parent="14" name="balance">
       <Position>7</Position>
       <DataType>double precision|0</DataType>
       <StateNumber>20415</StateNumber>
     </column>
-    <index id="37" parent="14" name="user_pkey">
+    <index id="40" parent="14" name="user_pkey">
       <ObjectId>47811</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="38" parent="14" name="user_pkey">
+    <key id="41" parent="14" name="user_pkey">
       <ObjectId>47812</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>user_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="39" parent="14" name="user_table_categories_fkey">
+    <foreign-key id="42" parent="14" name="user_table_categories_fkey">
       <ObjectId>47813</ObjectId>
       <ColNames>categories</ColNames>
       <RefTableName>category</RefTableName>

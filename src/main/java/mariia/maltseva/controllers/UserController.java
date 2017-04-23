@@ -36,5 +36,14 @@ public class UserController {
         return service.saveBalanceHistory(user);
     }
 
+    @PostMapping("/category/add")
+    public User addNewCategory(@RequestBody DTOUser user){
+        return service.addNewCategory(user);
+    }
 
+
+    @PostMapping("/category/delete")
+    public User deleteCategory(@RequestBody DTOUser user){
+        return service.deleteCategory(user);
+    }
 }

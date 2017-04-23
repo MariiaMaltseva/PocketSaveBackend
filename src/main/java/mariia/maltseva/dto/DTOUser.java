@@ -7,7 +7,7 @@ public class DTOUser {
     private String password;
     private double balance;
     private DTOBalanceHistory history;
-    private String category;
+    private DTOCategory category;
 
     public double getBalance() {
         return balance;
@@ -21,11 +21,11 @@ public class DTOUser {
         this.history = history;
     }
 
-    public String getCategory() {
+    public DTOCategory getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(DTOCategory category) {
         this.category = category;
     }
 
